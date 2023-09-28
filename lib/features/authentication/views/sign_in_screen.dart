@@ -6,6 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:todoapp/core/common/widgets/filled_field.dart';
 import 'package:todoapp/core/common/widgets/round_button.dart';
 import 'package:todoapp/core/common/widgets/white_space.dart';
 import 'package:todoapp/core/res/colors.dart';
@@ -48,14 +49,7 @@ class SignInScreen extends HookConsumerWidget {
               const WhiteSpace(
                 height: 20,
               ),
-              TextField(
-                keyboardType: TextInputType.phone,
-                controller: phoneController,
-                readOnly: code == null,
-                decoration: InputDecoration(
-                  focusedBorder: border,
-                  enabledBorder: border,
-                  prefixIcon: Padding(
+              FilledField(readOnly: code == null,controller: phoneController,prefixIcon: Padding(
                     padding: const EdgeInsets.only(top: 9.0, left: 14),
                     child: GestureDetector(
                         onTap: () {
@@ -111,18 +105,8 @@ class SignInScreen extends HookConsumerWidget {
                                     ? FontWeight.w500
                                     : FontWeight.bold),
                           ),
-                        )),
-                  ),
-                  filled: true,
-                  fillColor: Colours.light,
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-                ),
-                style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    color: Colours.backgroundDark,
-                    fontWeight: FontWeight.bold),
-              ),
+                        ),),
+                  ),keyboardType: TextInputType.phone),
               const WhiteSpace(
                 height: 30,
               ),
